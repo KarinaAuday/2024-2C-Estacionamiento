@@ -15,5 +15,7 @@ namespace _2024_2C_EstacionamientoORT.Models
 
         public bool ResponsablePrincipal { get; set; }
 
+        public ClienteVehiculo() { }
+
     }
 }
