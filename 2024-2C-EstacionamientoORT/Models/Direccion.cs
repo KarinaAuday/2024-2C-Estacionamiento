@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using _2024_2C_EstacionamientoORT.Helpers;
+using System.ComponentModel.DataAnnotations;
 
 namespace _2024_2C_EstacionamientoORT.Models
 {
@@ -11,6 +12,12 @@ namespace _2024_2C_EstacionamientoORT.Models
     
         public long CodPostal { get; set; }
 
+        //Propiedad relacional Obligatoria
+        [Required(ErrorMessage = ErrorMsge.Requerido)]
+        public int PersonaId { get; set; }
+
+
+        //Propiedades Navegacionales No Obligatorias
         public Persona Persona
         {
             get; set;
