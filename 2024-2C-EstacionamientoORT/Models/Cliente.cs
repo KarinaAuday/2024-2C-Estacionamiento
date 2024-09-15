@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using _2024_2C_EstacionamientoORT.Helpers;
+using System.ComponentModel.DataAnnotations;
 
 namespace _2024_2C_EstacionamientoORT.Models
 {
@@ -7,6 +8,8 @@ namespace _2024_2C_EstacionamientoORT.Models
 
         public Cliente() { }
 
+        [Required(ErrorMessage = ErrorMsge.Requerido)]
+        [Display(Name = "Numero Cuil")]
         public long Cuil { get; set; }
 
         //public Direccion Direccion { get; set; }

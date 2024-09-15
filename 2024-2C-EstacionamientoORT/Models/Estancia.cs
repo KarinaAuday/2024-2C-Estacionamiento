@@ -13,9 +13,13 @@ namespace _2024_2C_EstacionamientoORT.Models
 
         public decimal Monto { get; private set; }
 
-     
+        [DataType(DataType.DateTime)]
+        //[DisplayFormat(ApplyFormatInEditMode  = true, DataFormatString ="{0;yyyy/MM/dd HH:mm")]
+
         public DateTime Inicio { get; set; }
 
+        [DataType(DataType.DateTime)]
+        //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0;yyyy/MM/dd HH:mm")]
         public DateTime Fin { get; set; }
 
         public Pago pago { get; set; }

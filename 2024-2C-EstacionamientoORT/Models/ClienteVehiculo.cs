@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using _2024_2C_EstacionamientoORT.Helpers;
+using System.ComponentModel.DataAnnotations;
 
 namespace _2024_2C_EstacionamientoORT.Models
 {
@@ -14,6 +15,8 @@ namespace _2024_2C_EstacionamientoORT.Models
 
         public Vehiculo Vehiculo { get; set; }
 
+
+       
         public bool ResponsablePrincipal { get; set; }
 
         public ClienteVehiculo() { }

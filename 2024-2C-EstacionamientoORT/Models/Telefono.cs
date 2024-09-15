@@ -8,7 +8,8 @@ namespace _2024_2C_EstacionamientoORT.Models
     {
         public int Id { get; set; }
 
-   
+        [Required(ErrorMessage = ErrorMsge.Requerido)]
+        [RegularExpression(@"\d{3,5}", ErrorMessage = "El código de área debe tener entre 3 y 5 dígitos.")]
         public int CodArea { get; set; }
 
         [DataType (DataType.PhoneNumber)]

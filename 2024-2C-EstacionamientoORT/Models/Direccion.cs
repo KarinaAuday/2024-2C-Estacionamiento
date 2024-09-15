@@ -7,9 +7,11 @@ namespace _2024_2C_EstacionamientoORT.Models
     {
         public int Id { get; set; }
 
+        [Required(ErrorMessage = ErrorMsge.Requerido)]
         public String Calle { get; set; }
 
-    
+        [Required(ErrorMessage = ErrorMsge.Requerido)]
+          
         public long CodPostal { get; set; }
 
         //Propiedad relacional Obligatoria

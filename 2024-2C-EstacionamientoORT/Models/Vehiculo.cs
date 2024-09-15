@@ -6,7 +6,9 @@ namespace _2024_2C_EstacionamientoORT.Models
     {
         public int Id { get; set; }
 
-       
+
+        [RegularExpression(@"^[A-Za-z0-9]{6,7}$", ErrorMessage = "La patente debe tener entre 6 y 7 caracteres alfanuméricos.")]
+
         public int Patente { get; set; }
 
         [Required]
