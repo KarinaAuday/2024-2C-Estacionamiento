@@ -3,6 +3,10 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4">Bienvenidxs</h1>
     <p>Estacionamiento ORT 2024 2C</a>.</p>
 </div>
+@if (!String.IsNullOrEmpty(ViewBag.MensajeError))
+{
+    <div class="text-danger"> <p class="popover-arrow"> @ViewBag.MensajeError </p></div>
+}

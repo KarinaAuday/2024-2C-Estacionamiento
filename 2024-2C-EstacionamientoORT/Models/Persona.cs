@@ -12,7 +12,7 @@ namespace _2024_2C_EstacionamientoORT.Models
         public int Id { get; set; }
 
         [Required (ErrorMessage = ErrorMsge.Requerido )]
-        [Display (Name = "Nombre Completo")]
+        [Display (Name = "Nombre")]
         [StringLength(100, MinimumLength = 2 ,  ErrorMessage = ErrorMsge.Longitud)]
         [RegularExpression(@"^[a-zA-Z\s]*$", ErrorMessage = ErrorMsge.SoloLetras)]
 

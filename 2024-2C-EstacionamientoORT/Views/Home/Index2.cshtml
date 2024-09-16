@@ -1,0 +1,11 @@
+﻿@model List<string>
+
+    @{
+    ViewData["Title"] = "Pruebas con Karina";
+}   
+<h1>@ViewData["Title"]</h1>
+@foreach (var ciudad in Model)
+{
+    <p>La Ciudad es:</p>
+    <p>@ciudad</p>
+}

@@ -1,0 +1,25 @@
+﻿@model Persona
+
+
+<div>
+    @if (!String.IsNullOrEmpty(Model.Apellido) && !String.IsNullOrEmpty(Model.Nombre))
+    {
+        <h2>Los Datos de la Personas son :</h2>
+
+        <ul>
+            <li>
+                <p>el nombre completo es @Model.NombreCompleto</p>
+                <p>El DNI es @Model.Dni</p>
+                <p>El Email es @Model.Email</p>
+
+            </li>
+
+        </ul>
+    }
+    else
+    {
+        <p class="alert-danger"> No se encontraron datos de la persona</p>
+    }
+   
+
+</div>

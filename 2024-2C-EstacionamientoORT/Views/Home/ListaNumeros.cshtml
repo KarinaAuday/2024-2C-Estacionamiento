@@ -1,0 +1,12 @@
+﻿@model List<int>
+<div>
+    @{
+        <p>c) Muestro los numeros pares de la Lista</p>
+
+        var numerosPares = Model.Where(num => num % 2 == 0).ToList();
+        foreach (var numero in numerosPares)
+        {
+            <p>@numero</p>
+        }
+    }
+</div>

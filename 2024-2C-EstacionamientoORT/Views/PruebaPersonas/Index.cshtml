@@ -1,0 +1,20 @@
+﻿
+@model List<Persona>
+
+
+<h2>Estas son las Personas creadas Con nuestra webApp</h2>
+
+@if (Model != null)
+{
+    foreach (Persona persona in Model)
+    {
+        <p>@persona.NombreCompleto</p>
+    }
+}
+else
+{
+    <p>No hay personas creadas</p>
+}
+<div>
+    <a asp-controller="PruebaPersonas" asp-action="CrearPersona">Crear una persona</a>
+</div>
