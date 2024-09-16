@@ -1,0 +1,46 @@
+﻿.menu-karina {
+    background: url(../img/ParkingIcon.png) no-repeat;
+    background-size: 40px 40px;
+    height: 40px;
+    width: 40px;
+    margin: 8px;
+}
+
+.principal {
+    align-content: center;
+    text-align: center;
+}
+
+.table {
+    color: antiquewhite;
+}
+
+.centered-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Centrar la imagen */
+    margin-top: 2rem; /* Espacio superior */
+    /* Opcional: ajusta la altura del contenedor según tus necesidades */
+}
+
+/* Agregar espacio entre el título y la imagen */
+.space-between {
+    margin-bottom: 2rem; /* Espacio inferior */
+}
+
+body {
+    background-color: #333; /* Color de fondo gris oscuro */
+    color: white; /* Letra blanca */
+    font-family: Arial, sans-serif; /* Estilo de letra */
+}
+
+.display-4 {
+    font-size: 2.5rem; /* Tamaño del texto */
+    font-weight: bold; /* Negrita */
+    margin-bottom: 1rem; /* Espacio inferior */
+}
+
+.navbar-nav .nav-link {
+    color: white !important; /* Color del texto blanco */
+}

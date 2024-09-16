@@ -1,0 +1,58 @@
+﻿
+@model int
+
+@{
+    ViewData["Title"] = "Pruebas con Karina";
+}
+<h1>@ViewData["Title"]</h1>
+
+<h2>Pagina de Pruebas</h2>
+<!--Ejemplo con Razor-->
+@{
+
+    int numero = 2;
+    string texto = "texto Prueba";
+
+}
+
+
+
+<div>
+    <p> a) El Numero es @numero </p>
+    <p> a) El Texto es @texto </p>
+</div>
+
+<div>
+
+    @{
+        int num1 = 3;
+        if (num1 > 4)
+        {
+            <p>b) @num1 Es mayor a 4</p>
+
+        }
+        else
+        {
+            {
+                <p>b) @num1 Es Menor a 4</p>
+            }
+        }
+    }
+</div>
+
+
+
+
+<div>
+    @{
+          <p>c) Muestro los numeros de la Lista</p>
+        List<int> numeros = new List<int> { 1, 2, 3, 4 ,5,6};
+        foreach (int num in numeros)
+        {
+            <span>@num</span>
+        }
+    }
+</div>
+
+
+<p> d ) El número que mande por parámetro es @Model</p>

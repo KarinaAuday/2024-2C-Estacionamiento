@@ -18,10 +18,28 @@ namespace _2024_2C_EstacionamientoORT.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Index1(int? num)
         {
-            return View();
+
+            return View(num);
         }
+
+        public IActionResult Index2()
+        {
+            List<String> ciudades = new List<String> { "Buenos Aires", "Roma", "Madrid" };
+            return View(ciudades);
+        }
+
+        public IActionResult ListaNumeros()
+        {
+            List<int> numerosPares = new List<int> { 2, 4, 6, 8, 10 };
+            return View(numerosPares);
+        }
+
+        //public IActionResult Privacy()
+        //{
+        //    return View();
+        //}
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
