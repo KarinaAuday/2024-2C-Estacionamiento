@@ -1,0 +1,11 @@
+﻿@model List<string>
+
+    <h1>Index2 paso una lista de strings</h1>
+    <p>La lista tiene @Model.Count elementos</p>
+<p>Las ciudades son: </p>
+    @foreach (var ciudad in Model)
+{
+        
+        <p>@ciudad</p>
+}
+

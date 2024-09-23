@@ -1,0 +1,45 @@
+﻿@model int
+
+<h1>Index1 paso un numero</h1>
+<p>El valor de la variable es: @Model</p>
+
+@{
+    int numero = 20;
+    string nombre = "Juan";
+}
+
+<div>
+    <p>Mostrando Numeros y texto</p>
+    <p>EL valor del numero es @numero</p>
+    <p>El nombre es @nombre</p>
+
+</div>
+
+<div>
+    @{
+        var numParametro = @Model;
+        if (numParametro > 10)
+        {
+            <p>El numero recibido por parametro es mayor a 10</p>
+        }
+        else
+        {
+            <p>El numero recibido por parametro es menor a 10</p>
+        }
+
+    }
+
+
+    <div>
+        @{
+            <p>c) Muestro los numeros de la Lista</p>
+            List<int> numeros = new List<int> { 1, 2, 3, 4, 5, 6 };
+            foreach (int num in numeros)
+            {
+                <span>@num</span>
+            }
+        }
+    </div>
+
+</div>
+
