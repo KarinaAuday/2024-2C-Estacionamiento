@@ -1,3 +1,6 @@
+using _2024_2C_EstacionamientoORT.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace _2024_2C_EstacionamientoORT
 {
     public class Program
@@ -6,8 +9,12 @@ namespace _2024_2C_EstacionamientoORT
         {
             var builder = WebApplication.CreateBuilder(args);
 
+
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            // Configurar el contexto de base de datos en memoria
+            builder.Services.AddDbContext<EstacionamientoContext>(options =>
+                options.UseInMemoryDatabase("EstacionamientoDb"));
 
             var app = builder.Build();
 
