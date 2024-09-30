@@ -60,7 +60,10 @@ namespace _2024_2C_EstacionamientoORT.Controllers
             {
                 _context.Add(persona);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                // return RedirectToAction(nameof(Index));
+                //Creo direccion para la persona
+                return RedirectToAction("Create", "Direcciones", new { id = persona.Id });
+
             }
             return View(persona);
         }

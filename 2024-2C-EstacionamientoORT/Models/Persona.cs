@@ -34,7 +34,7 @@ namespace _2024_2C_EstacionamientoORT.Models
         public string Email { get; set; }
 
 
-        public string Profesion  { get; set; }
+        public string ?Profesion  { get; set; }
 
         public string NombreCompleto
         {
@@ -46,11 +46,11 @@ namespace _2024_2C_EstacionamientoORT.Models
         }
 
         //Propiedad Navegacional No obligatoria
-        public Direccion Direccion { get; set; }
+        public Direccion ?Direccion { get; set; }
 
 
         //Propiedad Navegacional No obligatoria LIST
-        public List<Telefono> Telefonos { get; set; }
+        public List<Telefono> ?Telefonos { get; set; }
 
     }
 }

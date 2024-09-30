@@ -45,11 +45,36 @@ namespace _2024_2C_EstacionamientoORT.Controllers
             return View(direccion);
         }
 
+
+        
+
         // GET: Direcciones/Create
-        public IActionResult Create()
+        public IActionResult Create(int ?id)
         {
-            ViewData["PersonaId"] = new SelectList(_context.Personas, "Id", "Apellido");
+            if (id.HasValue)
+            {
+                // Buscar la persona en la base de datos
+                var persona = _context.Personas.FirstOrDefault(p => p.Id == id);
+
+                if (persona != null)
+                {
+                    // Pasar el nombre y apellido a la vista
+                    ViewBag.PersonaNombreCompleto = $"{persona.Nombre} {persona.Apellido}";
+                    ViewBag.PersonaId = id;
+                }
+                else
+                {
+                    // Manejar el caso en que la persona no exista
+                    ViewBag.PersonaNombreCompleto = "Persona no encontrada";
+                }
+            }
+            else
+            {
+                // Si no se proporcionó idPersona, cargar la lista de personas
+                ViewData["PersonaId"] = new SelectList(_context.Personas, "Id", "Apellido");
+            }
             return View();
+
         }
 
         // POST: Direcciones/Create
@@ -66,6 +91,7 @@ namespace _2024_2C_EstacionamientoORT.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["PersonaId"] = new SelectList(_context.Personas, "Id", "Apellido", direccion.PersonaId);
+           
             return View(direccion);
         }
 

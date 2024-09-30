@@ -9,7 +9,7 @@ namespace _2024_2C_EstacionamientoORT.Data
         public RepoPersonas()
         {
             _personas = new List<Persona>();
-            Persona persona = new Persona() { Nombre = "Luis", Apellido = "Spinetta", Dni = "22334455", Email = "LSpinetta@gmail.com" };
+            Persona persona = new Persona() { Nombre = "Luis", Apellido = "Spinetta", Dni = "22334455", Email = "LSpinetta@gmail.com"  };
             Persona persona2 = new Persona() { Nombre = "Chaly", Apellido = "Garcia", Dni = "22374455", Email = "Cgarcia@gmail.com" };
             Persona persona3 = new Persona() { Nombre = "Gustavo", Apellido = "Cerati", Dni = "12374455", Email = "Cerati@gmail.com" };
             Persona persona4 = new Persona() { Nombre = "Astor", Apellido = "Piazolla", Dni = "22884455", Email = "¨Piazolla@gmail.com" };
