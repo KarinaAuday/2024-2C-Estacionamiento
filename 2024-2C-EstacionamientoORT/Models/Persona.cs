@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using _2024_2C_EstacionamientoORT.Helpers;
 
 namespace _2024_2C_EstacionamientoORT.Models
@@ -36,6 +37,7 @@ namespace _2024_2C_EstacionamientoORT.Models
 
         public string ?Profesion  { get; set; }
 
+        
         public string NombreCompleto
         {
             get

@@ -67,11 +67,11 @@ namespace _2024_2C_EstacionamientoORT.Controllers
 
 
 
-            //return View(personas.Personas);
+            // return View(personas.Personas);
 
 
 
-             return View(_contexto.Personas);
+            return View(_contexto.Personas);
         }
     }
 }
