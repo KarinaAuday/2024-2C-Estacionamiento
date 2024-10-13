@@ -22,14 +22,16 @@
                 <input asp-for="CodPostal" class="form-control" />
                 <span asp-validation-for="CodPostal" class="text-danger"></span>
             </div>
-             @if (ViewBag.PersonaId != null)
+            @if (ViewBag.PersonaCrearId != null && ViewBag.PersonaCrearId > 0)
             {
+                <p>Viene de Persona</p>
                 <!-- Si PersonaId está presente, mostrar el nombre completo y un campo oculto -->
-                <input type="hidden" asp-for="PersonaId" value="@ViewBag.PersonaId" />
+                <input type="hidden" asp-for="PersonaId" value="@ViewBag.PersonaCrearId" />
                 <p>Creando dirección para: @ViewBag.PersonaNombreCompleto</p>
             }
             else
             {
+                <p>NO Viene de Persona</p>
                 <div class="form-group">
                     <label asp-for="PersonaId" class="control-label"></label>
                     <select asp-for="PersonaId" class="form-control" asp-items="ViewBag.PersonaId"></select>

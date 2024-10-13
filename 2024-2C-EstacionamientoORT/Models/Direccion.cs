@@ -5,6 +5,7 @@ namespace _2024_2C_EstacionamientoORT.Models
 {
     public class Direccion
     {
+
         public int Id { get; set; }
 
         [Required(ErrorMessage = ErrorMsge.Requerido)]

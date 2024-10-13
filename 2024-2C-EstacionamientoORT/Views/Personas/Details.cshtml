@@ -43,6 +43,53 @@
     </dl>
 </div>
 <div>
+    <h4>@Html.DisplayNameFor(Model => Model.Direccion)</h4>
+    @if (Model.Direccion != null)
+    {
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Direccion.Calle)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Direccion.Calle)
+            </dd>
+            
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Direccion.CodPostal)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Direccion.CodPostal)
+            </dd>
+
+        </dl>
+    }
+    else
+    {
+        <h6>No hay dirección registrada</h6>
+    }
+</div>
+<div>
+
+    @if (Model.Telefonos != null && Model.Telefonos.Count != 0)
+    {
+        <h4>@Html.DisplayNameFor(Model => Model.Telefonos)</h4>
+
+        foreach (Telefono telefono in Model.Telefonos)
+        {
+            <p>@telefono.NumeroCompleto</p>
+
+
+        }
+
+    }
+    else
+    {
+        <h6>No hay Telefonos registrados</h6>
+        <a asp-action="Create" asp-controller="Telefonos" class="btn btn-sm btn-info">Agregar Telefono</a>
+    }
+</div>
+
+<div>
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>

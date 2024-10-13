@@ -8,7 +8,9 @@
 </div>
 <img src="~/img/placepark.jpg" alt="Logo de Estacionamiento ORT" class="img-fluid mx-auto d-block" style="max-width: 500px;" />
 
-@if (!String.IsNullOrEmpty(ViewBag.MensajeError))
+@if (TempData["PrecargaOK"] != null)
 {
-    <div class="text-danger"> <p class="popover-arrow"> @ViewBag.MensajeError </p></div>
+    <div class="alert alert-success">
+        @TempData["PrecargaOK"]
+    </div>
 }

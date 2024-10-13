@@ -19,6 +19,7 @@ namespace _2024_2C_EstacionamientoORT.Data
         public DbSet<Telefono> Telefonos { get; set; }
         public DbSet<Pago> Pagos { get; set; }
         public DbSet<Estancia> Estancia { get; set; }
+        public DbSet<Empleado> Empleado { get; set; }
 
     }
 }

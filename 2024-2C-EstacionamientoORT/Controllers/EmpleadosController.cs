@@ -10,22 +10,22 @@ using _2024_2C_EstacionamientoORT.Models;
 
 namespace _2024_2C_EstacionamientoORT.Controllers
 {
-    public class ClientesController : Controller
+    public class EmpleadosController : Controller
     {
         private readonly EstacionamientoContext _context;
 
-        public ClientesController(EstacionamientoContext context)
+        public EmpleadosController(EstacionamientoContext context)
         {
             _context = context;
         }
 
-        // GET: Clientes
+        // GET: Empleados
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Clientes.ToListAsync());
+            return View(await _context.Empleado.ToListAsync());
         }
 
-        // GET: Clientes/Details/5
+        // GET: Empleados/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,46 +33,39 @@ namespace _2024_2C_EstacionamientoORT.Controllers
                 return NotFound();
             }
 
-            var cliente = await _context.Clientes
+            var empleado = await _context.Empleado
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (cliente == null)
+            if (empleado == null)
             {
                 return NotFound();
             }
 
-            return View(cliente);
+            return View(empleado);
         }
 
-        // GET: Clientes/Create
+        // GET: Empleados/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Clientes/Create
+        // POST: Empleados/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //agrego un parametro extra, que envio de la vista y no es del modelo
-        public async Task<IActionResult> Create(string pais ,[Bind("Cuil,Id,Nombre,Apellido,Dni,Email,Profesion")] Cliente cliente)
+        public async Task<IActionResult> Create([Bind("CodigoEmpleado,Id,Nombre,Apellido,Dni,Email,Profesion")] Empleado empleado)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(cliente);
+                _context.Add(empleado);
                 await _context.SaveChangesAsync();
-                // return RedirectToAction(nameof(Index));
-                return RedirectToAction("Create", "Direcciones", new { id = cliente.Id });
+                return RedirectToAction(nameof(Index));
             }
-            else
-            {
-                //Agrego mensaje de error para que no quede en la misma pagina sin mostrar nada cuando algo funciona mal
-                ViewBag.Error = "Error al crear el cliente";
-            }
-            return View(cliente);
+            return View(empleado);
         }
 
-        // GET: Clientes/Edit/5
+        // GET: Empleados/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -80,22 +73,22 @@ namespace _2024_2C_EstacionamientoORT.Controllers
                 return NotFound();
             }
 
-            var cliente = await _context.Clientes.FindAsync(id);
-            if (cliente == null)
+            var empleado = await _context.Empleado.FindAsync(id);
+            if (empleado == null)
             {
                 return NotFound();
             }
-            return View(cliente);
+            return View(empleado);
         }
 
-        // POST: Clientes/Edit/5
+        // POST: Empleados/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Cuil,Id,Nombre,Apellido,Dni,Email,Profesion")] Cliente cliente)
+        public async Task<IActionResult> Edit(int id, [Bind("CodigoEmpleado,Id,Nombre,Apellido,Dni,Email,Profesion")] Empleado empleado)
         {
-            if (id != cliente.Id)
+            if (id != empleado.Id)
             {
                 return NotFound();
             }
@@ -104,12 +97,12 @@ namespace _2024_2C_EstacionamientoORT.Controllers
             {
                 try
                 {
-                    _context.Update(cliente);
+                    _context.Update(empleado);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ClienteExists(cliente.Id))
+                    if (!EmpleadoExists(empleado.Id))
                     {
                         return NotFound();
                     }
@@ -120,10 +113,10 @@ namespace _2024_2C_EstacionamientoORT.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(cliente);
+            return View(empleado);
         }
 
-        // GET: Clientes/Delete/5
+        // GET: Empleados/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -131,34 +124,34 @@ namespace _2024_2C_EstacionamientoORT.Controllers
                 return NotFound();
             }
 
-            var cliente = await _context.Clientes
+            var empleado = await _context.Empleado
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (cliente == null)
+            if (empleado == null)
             {
                 return NotFound();
             }
 
-            return View(cliente);
+            return View(empleado);
         }
 
-        // POST: Clientes/Delete/5
+        // POST: Empleados/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var cliente = await _context.Clientes.FindAsync(id);
-            if (cliente != null)
+            var empleado = await _context.Empleado.FindAsync(id);
+            if (empleado != null)
             {
-                _context.Clientes.Remove(cliente);
+                _context.Empleado.Remove(empleado);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ClienteExists(int id)
+        private bool EmpleadoExists(int id)
         {
-            return _context.Clientes.Any(e => e.Id == id);
+            return _context.Empleado.Any(e => e.Id == id);
         }
     }
 }

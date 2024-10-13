@@ -12,10 +12,14 @@ namespace _2024_2C_EstacionamientoORT
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            // Configurar el contexto de base de datos en memoria
-            builder.Services.AddDbContext<EstacionamientoContext>(options =>
-                options.UseInMemoryDatabase("EstacionamientoDb"));
 
+            // Configurar el contexto de base de datos en memoria
+            //builder.Services.AddDbContext<EstacionamientoContext>(options =>
+            //    options.UseInMemoryDatabase("EstacionamientoDb"));
+            
+            //Configuro SQL Server
+            ////Agrego la base de datos SQL , y guardo el conection string en el appsetting.json
+            builder.Services.AddDbContext<EstacionamientoContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("EstacionamientoDBCS")));
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

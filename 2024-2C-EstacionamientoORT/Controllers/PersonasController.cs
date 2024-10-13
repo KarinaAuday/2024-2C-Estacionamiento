@@ -28,20 +28,39 @@ namespace _2024_2C_EstacionamientoORT.Controllers
         // GET: Personas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            //Aca va el include de direccion y telefonos para que muestre el detalle de la persona con su direccion y telefonos
+     
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
-            var persona = await _context.Personas
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (persona == null)
-            {
-                return NotFound();
-            }
+                var persona = await _context.Personas.Include(clt => clt.Telefonos)
+                                            .Include(clt => clt.Direccion)
+                                            .FirstOrDefaultAsync(m => m.Id == id);
+                //Incluyo los objetos del contexto
 
-            return View(persona);
-        }
+
+                if (persona == null)
+                {
+                    return NotFound();
+                }
+                var direccion = await _context.Direccion
+                    .FirstOrDefaultAsync(m => m.Id == id);
+
+                //if (direccion == null)
+                //{
+                //    return NotFound();
+                //}
+
+
+                persona.Direccion = direccion;
+                //Mando al la persona con la direccion y el telefono para que se muestre en la vista
+                return View(persona);
+
+
+            }
+        
 
         // GET: Personas/Create
         public IActionResult Create()

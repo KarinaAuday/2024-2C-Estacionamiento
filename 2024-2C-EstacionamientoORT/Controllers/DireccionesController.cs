@@ -60,7 +60,7 @@ namespace _2024_2C_EstacionamientoORT.Controllers
                 {
                     // Pasar el nombre y apellido a la vista
                     ViewBag.PersonaNombreCompleto = $"{persona.Nombre} {persona.Apellido}";
-                    ViewBag.PersonaId = id;
+                    ViewBag.PersonaCrearId = id;
                 }
                 else
                 {
@@ -72,6 +72,7 @@ namespace _2024_2C_EstacionamientoORT.Controllers
             {
                 // Si no se proporcionó idPersona, cargar la lista de personas
                 ViewData["PersonaId"] = new SelectList(_context.Personas, "Id", "Apellido");
+           
             }
             return View();
 
@@ -91,7 +92,7 @@ namespace _2024_2C_EstacionamientoORT.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["PersonaId"] = new SelectList(_context.Personas, "Id", "Apellido", direccion.PersonaId);
-           
+        
             return View(direccion);
         }
 
