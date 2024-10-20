@@ -155,10 +155,20 @@ namespace _2024_2C_EstacionamientoORT.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+        public ActionResult Buscar(string cli)
+        {
 
+            // Realiza la lógica de búsqueda utilizando el término "q".
+            var resultados = _context.Clientes.Where(c => c.Apellido.Contains(cli)).ToList();
+
+            // Devuelve la vista de resultados con la lista de resultados.
+            return View("Buscador", resultados);
+        }
         private bool ClienteExists(int id)
         {
             return _context.Clientes.Any(e => e.Id == id);
         }
+
+
     }
 }

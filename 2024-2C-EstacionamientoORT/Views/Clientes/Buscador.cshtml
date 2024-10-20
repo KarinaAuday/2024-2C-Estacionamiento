@@ -1,0 +1,20 @@
+﻿@model List<_2024_2C_EstacionamientoORT.Models.Cliente>
+ 
+
+    @{
+    ViewData["Title"] = "Buscador";
+}
+<h1>Resultados de la búsqueda</h1>
+<ul>
+    @foreach (var cliente in Model)
+    {
+
+        <li>@cliente.NombreCompleto</li>
+        <li>@cliente.Dni</li>
+    }
+</ul>
+
+<a>
+    <a asp-action="Index">Volver al Buscador  de clientes</a>
+
+</a>
