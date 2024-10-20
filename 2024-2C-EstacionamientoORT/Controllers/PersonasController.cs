@@ -45,8 +45,8 @@ namespace _2024_2C_EstacionamientoORT.Controllers
                 {
                     return NotFound();
                 }
-                var direccion = await _context.Direccion
-                    .FirstOrDefaultAsync(m => m.Id == id);
+               // var direccion = await _context.Direccion
+                 //   .FirstOrDefaultAsync(m => m.Id == id);
 
                 //if (direccion == null)
                 //{
@@ -54,7 +54,7 @@ namespace _2024_2C_EstacionamientoORT.Controllers
                 //}
 
 
-                persona.Direccion = direccion;
+               // persona.Direccion = direccion;
                 //Mando al la persona con la direccion y el telefono para que se muestre en la vista
                 return View(persona);
 

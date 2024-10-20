@@ -20,6 +20,8 @@ namespace _2024_2C_EstacionamientoORT
             //Configuro SQL Server
             ////Agrego la base de datos SQL , y guardo el conection string en el appsetting.json
             builder.Services.AddDbContext<EstacionamientoContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("EstacionamientoDBCS")));
+            
+            
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

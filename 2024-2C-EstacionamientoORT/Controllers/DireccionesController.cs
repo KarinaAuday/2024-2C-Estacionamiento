@@ -71,7 +71,7 @@ namespace _2024_2C_EstacionamientoORT.Controllers
             else
             {
                 // Si no se proporcionó idPersona, cargar la lista de personas
-                ViewData["PersonaId"] = new SelectList(_context.Personas, "Id", "Apellido");
+                ViewData["PersonaId"] = new SelectList(_context.Personas, "Id", "NombreCompleto");
            
             }
             return View();
@@ -83,7 +83,7 @@ namespace _2024_2C_EstacionamientoORT.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Calle,CodPostal,PersonaId")] Direccion direccion)
+        public async Task<IActionResult> Create([Bind("Calle,CodPostal,PersonaId")] Direccion direccion)
         {
             if (ModelState.IsValid)
             {
