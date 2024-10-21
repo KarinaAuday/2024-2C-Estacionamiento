@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using _2024_2C_EstacionamientoORT.Data;
 using _2024_2C_EstacionamientoORT.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace _2024_2C_EstacionamientoORT.Controllers
 {
+    //Requiere que el usuario este autenticado
+    [Authorize]
     public class ClientesController : Controller
     {
         private readonly EstacionamientoContext _context;
@@ -54,6 +57,7 @@ namespace _2024_2C_EstacionamientoORT.Controllers
         }
 
         // GET: Clientes/Create
+      
         public IActionResult Create()
         {
             return View();

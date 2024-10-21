@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using _2024_2C_EstacionamientoORT.Data;
 using _2024_2C_EstacionamientoORT.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace _2024_2C_EstacionamientoORT.Controllers
 {
@@ -44,11 +45,12 @@ namespace _2024_2C_EstacionamientoORT.Controllers
         }
 
         // GET: Empleados/Create
+        [Authorize(Roles = "Administrador")]
         public IActionResult Create()
         {
             return View();
         }
-
+        [Authorize(Roles = "Administrador")]
         // POST: Empleados/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.

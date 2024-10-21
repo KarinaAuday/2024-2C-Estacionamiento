@@ -23,10 +23,6 @@ namespace _2024_2C_EstacionamientoORT
             //Configuro SQL Server
             ////Agrego la base de datos SQL , y guardo el conection string en el appsetting.json
             builder.Services.AddDbContext<EstacionamientoContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("EstacionamientoDBCS")));
-            
-            
-            var app = builder.Build();
-
             #region Identity
             //se Almacena en nuestro Contexto
             builder.Services.AddIdentity<Persona, Rol>().AddEntityFrameworkStores<EstacionamientoContext>();
@@ -41,16 +37,20 @@ namespace _2024_2C_EstacionamientoORT
             }
             );
 
-            //builder.Services.PostConfigure<CookieAuthenticationOptions>(IdentityConstants.ApplicationScheme,
-            //                   options =>
-            //                   {
-            //                       options.LoginPath = "/Account/IniciarSesion";
-            //                       options.AccessDeniedPath = "/Account/AccesoDenegado";
-            //                   }
-            //                              );
+            builder.Services.PostConfigure<CookieAuthenticationOptions>(IdentityConstants.ApplicationScheme,
+                               options =>
+                               {
+                                   options.LoginPath = "/Account/IniciarSesion";
+                                   options.AccessDeniedPath = "/Account/AccesoDenegado";
+                               }
+                                          );
 
             //Password por defecto = Password1
             #endregion
+
+            var app = builder.Build();
+
+           
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {

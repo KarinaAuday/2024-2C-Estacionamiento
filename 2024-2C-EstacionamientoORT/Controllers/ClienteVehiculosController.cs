@@ -49,7 +49,7 @@ namespace _2024_2C_EstacionamientoORT.Controllers
         // GET: ClienteVehiculos/Create
         public IActionResult Create()
         {
-            ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "Discriminator");
+            ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "Apellido");
             ViewData["VehiculoId"] = new SelectList(_context.Vehiculos, "Id", "Marca");
             return View();
         }

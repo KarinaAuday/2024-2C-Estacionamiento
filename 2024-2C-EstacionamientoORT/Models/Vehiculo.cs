@@ -33,6 +33,10 @@ namespace _2024_2C_EstacionamientoORT.Models
             this.Color = color;
 
         }
+        public Vehiculo()
+        {
+                
+        }
     }
 
    
