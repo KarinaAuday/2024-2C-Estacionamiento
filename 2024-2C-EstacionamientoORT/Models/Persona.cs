@@ -1,16 +1,18 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using _2024_2C_EstacionamientoORT.Helpers;
+using Microsoft.AspNetCore.Identity;
 
 namespace _2024_2C_EstacionamientoORT.Models
 {
-    public class Persona
+    public class Persona : IdentityUser<int>
     {
         public Persona() {}
 
 
+        //Comento Id porque ya lo tiene IdentityUser
+        //public int Id { get; set; }
 
-        public int Id { get; set; }
 
         [Required (ErrorMessage = ErrorMsge.Requerido )]
         [Display (Name = "Nombre")]
@@ -32,8 +34,13 @@ namespace _2024_2C_EstacionamientoORT.Models
 
         [Required(ErrorMessage = ErrorMsge.Requerido)]
         [DataType(DataType.EmailAddress)]
-        public string Email { get; set; }
-
+        //public string Email { get; set; }
+        //Adecuacion de Email identityUser
+        public override string Email
+        {
+            get { return base.Email; }
+            set { base.Email = value; }
+        }
 
         public string ?Profesion  { get; set; }
 
