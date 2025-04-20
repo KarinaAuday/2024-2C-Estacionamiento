@@ -39,12 +39,14 @@ namespace _2024_2C_EstacionamientoORT.Controllers
 
         public IActionResult ListaNumeros()
         {
-            List<int> numerosPares = new List<int> { 2, 4, 6, 8, 10 };
-            return View(numerosPares);
+            List<int> numeros = new List<int> {1,5, 2, 4, 6, 8, 10 };
+            return View(numeros);
         }
 
         public IActionResult PasoParametros(int id, string nombreProducto, string descripcion, double precio)
         {
+            // accedo asi
+            //Home/PasoParametros/?id=1&nombreProducto=iphone&descripcion=caro&precio=1000
             //Chekeo que recibi los parametros
             if (id > 0 && !String.IsNullOrEmpty(nombreProducto) && !String.IsNullOrEmpty(descripcion))
             {
